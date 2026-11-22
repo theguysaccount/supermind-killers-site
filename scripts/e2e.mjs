@@ -39,7 +39,8 @@ for (let i = 0; i < 36 && !data; i++) {
 }
 if (!data) { console.log(`FAIL: ${base}data/platforms.json did not answer with JSON`); process.exit(1); }
 const pages = ["", "rubric/", "changes/", "about/", ...data.apps.map((a) => `platforms/${a.slug}/`)];
-const widths = [[1280, false], [390, true]];
+// PHONE_WIDTH lets a local run stress-test narrower phones (CI fonts are wider than macOS fonts).
+const widths = [[1280, false], [Number(process.env.PHONE_WIDTH || 390), true]];
 
 const profile = fs.mkdtempSync(path.join(os.tmpdir(), "e2e-"));
 const chrome = spawn(CHROME, [...(process.env.CI ? ["--no-sandbox"] : []), "--headless=new", "--disable-gpu", "--hide-scrollbars",

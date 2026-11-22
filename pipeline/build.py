@@ -146,7 +146,7 @@ class Ctx:
 # ---------------------------------------------------------------------------------------------
 # HTML pieces
 
-CSS_VERSION = "1"
+CSS_VERSION = "2"
 
 
 def tone(points: int, mx: int, answer) -> str:

@@ -87,5 +87,5 @@ ol.events{list-style:none;padding:0;margin:0}
 .corr{border-top:1px solid var(--line);margin-top:26px}
 footer.foot{border-top:1px solid var(--line);background:var(--card);color:var(--muted);font-size:.92rem;padding:18px 0 26px}
 footer.foot p{margin:6px 0}
-@media (max-width:600px){h2{font-size:1.2rem}.quick th{width:auto}th,td{padding:8px 10px}.cards{grid-template-columns:1fr}}
+@media (max-width:600px){h2{font-size:1.2rem}th,td{padding:8px 10px}.cards{grid-template-columns:1fr}.quick tr{display:block;border-bottom:1px solid var(--line);padding:6px 0}.quick tbody tr:last-child{border-bottom:0}.quick th,.quick td{display:block;width:auto;border-bottom:0;padding:2px 12px}.pill .pts{white-space:normal}}
 @media print{header.top,footer.foot,.filters,button{display:none}}
