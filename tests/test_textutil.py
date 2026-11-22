@@ -24,6 +24,18 @@ class TextTests(unittest.TestCase):
         text = T.html_to_text("<div><script>x</div></script><p>After the script.</p>")
         self.assertIn("After the script.", text)
 
+    def test_related_articles_are_not_document_text(self):
+        html = ('<main><p>We keep deleted chats for 30 days before removing them.</p>'
+                '<section class="jsx-1 related_articles my"><div>Related Articles</div>'
+                '<section class="flex"><a href="/a">What personal data is collected when using dictation?</a></section>'
+                '<section><a href="/b">Is my data used for model training?</a></section></section>'
+                '<p>Contact us with any question about this policy.</p></main>')
+        text = T.html_to_text(html)
+        self.assertIn("We keep deleted chats for 30 days before removing them.", text)
+        self.assertIn("Contact us with any question about this policy.", text)
+        for gone in ("Related Articles", "dictation", "model training"):
+            self.assertNotIn(gone, text)
+
     def test_contains_is_word_for_word(self):
         doc = "Once you choose to delete Personal Data, we will remove it within 30 days."
         self.assertTrue(T.contains(doc, "we will remove it within 30 days"))

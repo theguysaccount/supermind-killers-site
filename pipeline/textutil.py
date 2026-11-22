@@ -22,6 +22,12 @@ BLOCK = {"p", "div", "section", "article", "main", "header", "aside", "li", "ul"
          "tr", "td", "th", "thead", "tbody", "h1", "h2", "h3", "h4", "h5", "h6", "blockquote", "pre", "br", "hr",
          "details", "summary", "figure", "figcaption", "address", "body", "html", "title", "button", "label"}
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
+# Lists of other pages ("Related articles") are navigation, not document text. Help centers reshuffle
+# them often, and a new link title would otherwise read as a change in the policy.
+RELATED = re.compile(r"related[_-]?articles", re.I)
+# Version of the reader's output. Bump it whenever unchanged pages would read differently, so stored
+# fingerprints re-baseline once instead of reporting a change (see check.py).
+READER = 2
 
 _FOLD = {
     "‘": "'", "’": "'", "‚": "'", "‛": "'", "′": "'", "´": "'", "`": "'",
@@ -55,10 +61,10 @@ class _Extractor(HTMLParser):
     # is part of the document. Only tags that never hold document text are dropped.
     def handle_starttag(self, tag, attrs):
         if self.skip:
-            if tag in SKIP and tag not in VOID:
-                self.skip.append(tag)  # nested skip tags are counted so the outer one closes correctly
+            if (tag in SKIP or tag in self.skip) and tag not in VOID:
+                self.skip.append(tag)  # nested tags are counted so the outer one closes correctly
             return
-        if tag in SKIP and tag not in VOID:
+        if tag not in VOID and (tag in SKIP or RELATED.search(dict(attrs).get("class") or "")):
             self.skip.append(tag)
             return
         if tag in BLOCK:

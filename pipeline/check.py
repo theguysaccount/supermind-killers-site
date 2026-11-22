@@ -124,6 +124,10 @@ def check_app(app: dict, state: dict, changes: list, *, offline: bool = False, d
         old_sig = S.load_sig(slug, doc_id, data)
         new_sig = T.signature(text)
         added, removed = T.diff(old_sig, text) if old_sig else ([], 0)
+        if old_sig and S.sig_reader(slug, doc_id, data) != T.READER:
+            # These fingerprints came from an older reader, which kept text the current one drops (such
+            # as "Related articles" lists). Only added sentences are comparable this once.
+            removed = 0
         missing = []
         for where, cid, ev in by_doc.get(doc_id, []):
             qid = S.quote_id(slug, doc_id, ev["quote"])

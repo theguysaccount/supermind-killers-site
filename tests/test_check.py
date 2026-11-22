@@ -10,6 +10,7 @@ from unittest import mock
 from pipeline import check as C
 from pipeline import fetch as F
 from pipeline import store as S
+from pipeline import textutil as T
 
 POLICY_V1 = """<html><body><nav>Menu</nav><main><h1>Example Privacy Policy</h1>
 <p>Effective January 1, 2026.</p>
@@ -161,6 +162,22 @@ class CheckTests(unittest.TestCase):
         with mock.patch.object(F, "fetch", too_old):
             C.main(["--data", self.data])
         self.assertEqual(S.state(self.data)["docs"]["example/privacy"]["status"], "unreachable")
+
+    def test_a_new_reader_rebaselines_without_a_false_change(self):
+        related = ('<section class="related_articles"><div>Related Articles</div><a href="/x">What personal data is '
+                   'collected when using dictation on the mobile apps?</a></section>')
+        self.html = page().replace("</main>", related + "</main>")
+        # Fingerprints written by the previous reader, which also read the "Related articles" list.
+        old_text = C.doc_text(APP["documents"]["privacy"], self.html.replace("related_articles", "other"))
+        os.makedirs(os.path.join(self.data, "sigs"), exist_ok=True)
+        with open(S.sig_path("example", "privacy", self.data), "w") as f:
+            f.write("\n".join(T.signature(old_text)) + "\n")  # no header: reader version 1
+        self.assertEqual(S.sig_reader("example", "privacy", self.data), 1)
+        self.assertEqual(self.run_check(), [])  # the list the new reader drops is not a change
+        self.assertEqual(S.sig_reader("example", "privacy", self.data), T.READER)
+        self.html = self.html.replace("</main>", "<p>We now keep backups of deleted conversations for one year.</p></main>")
+        events = self.run_check()
+        self.assertEqual([(e["added"], e["removed"]) for e in events], [(1, 0)])
 
     def test_a_gutted_page_is_not_a_change(self):
         self.run_check()

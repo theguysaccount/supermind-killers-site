@@ -13,6 +13,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import re
 from typing import Iterator
 
 from . import textutil as T
@@ -79,16 +80,26 @@ def sig_path(app: str, doc: str, data: str = DATA) -> str:
 def load_sig(app: str, doc: str, data: str = DATA) -> list[str]:
     try:
         with open(sig_path(app, doc, data), encoding="utf-8") as f:
-            return [line.strip() for line in f if line.strip()]
+            return [line.strip() for line in f if line.strip() and not line.startswith("#")]
     except FileNotFoundError:
         return []
+
+
+def sig_reader(app: str, doc: str, data: str = DATA) -> int:
+    """Version of the reader that wrote the stored fingerprints (a file without a header: 1)."""
+    try:
+        with open(sig_path(app, doc, data), encoding="utf-8") as f:
+            m = re.match(r"# reader (\d+)", f.readline())
+    except FileNotFoundError:
+        return 0
+    return int(m.group(1)) if m else 1
 
 
 def save_sig(app: str, doc: str, sig: list[str], data: str = DATA) -> None:
     path = sig_path(app, doc, data)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
-        f.write("\n".join(sig) + "\n")
+        f.write(f"# reader {T.READER}\n" + "\n".join(sig) + "\n")
 
 
 def quote_id(app: str, doc: str, quote: str) -> str:
