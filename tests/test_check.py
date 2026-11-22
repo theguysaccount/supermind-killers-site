@@ -1,4 +1,5 @@
 """The weekly check, run against fake pages: first read, change, missing quote, unreadable page, re-run."""
+import datetime as dt
 import json
 import os
 import shutil
@@ -129,6 +130,35 @@ class CheckTests(unittest.TestCase):
         st["docs"]["example/privacy"]["last_ok"] = "2020-01-01T00:00:00Z"
         S.save_state(st, self.data)
         with mock.patch.object(F, "fetch", refused):
+            C.main(["--data", self.data])
+        self.assertEqual(S.state(self.data)["docs"]["example/privacy"]["status"], "unreachable")
+
+    def test_archive_only_page_follows_the_archive_age_limit(self):
+        # Only the Internet Archive can read this page, and each week it returns the same capture.
+        capture = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=60)).strftime("%Y%m%d%H%M%S")
+
+        def archived(url, **kw):
+            return F.Result(url=url, status=200, final_url=url, via="wayback", capture=capture,
+                            archive_url=f"https://web.archive.org/web/{capture}id_/{url}", body=self.html.encode(),
+                            notes=["the live page refuses automated readers (HTTP 403)"])
+
+        def too_old(url, **kw):  # the newest capture is now past the archive age limit
+            return F.Result(url=url, status=403, via="wayback", error="refused; no archived copy under the age limit",
+                            notes=["the live page refuses automated readers (HTTP 403)"])
+        with mock.patch.object(F, "fetch", archived):
+            C.main(["--data", self.data])
+            C.main(["--data", self.data])  # same capture again: still a good read, as of the capture
+        doc = S.state(self.data)["docs"]["example/privacy"]
+        self.assertEqual(doc["status"], "ok")
+        self.assertEqual(doc["via"], "wayback")
+        self.assertEqual(doc["last_ok"], C.capture_iso(capture))
+        with mock.patch.object(F, "fetch", too_old):
+            C.main(["--data", self.data])
+        self.assertEqual(S.state(self.data)["docs"]["example/privacy"]["status"], "ok")  # the 60-day copy still stands
+        st = S.state(self.data)
+        st["docs"]["example/privacy"]["last_ok"] = "2020-01-01T00:00:00Z"
+        S.save_state(st, self.data)
+        with mock.patch.object(F, "fetch", too_old):
             C.main(["--data", self.data])
         self.assertEqual(S.state(self.data)["docs"]["example/privacy"]["status"], "unreachable")
 

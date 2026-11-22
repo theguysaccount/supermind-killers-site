@@ -76,9 +76,12 @@ def read_document(app: dict, doc_id: str, doc: dict, prev: dict, *, offline: boo
                 res.via == "wayback" and res.ok and prev.get("last_ok") and capture_iso(res.capture) <= prev["last_ok"]):
             # The live page refused this reader and the archive holds nothing newer than the text
             # already read: no new information. The last good read stands, with its own date, for
-            # GRACE_DAYS; after that the document is marked unreadable so the page says so.
+            # GRACE_DAYS; after that the document is marked unreadable so the page says so. When that
+            # read was itself an archive copy, it stays good while the copy is under the archive's
+            # own age limit (the limit it was accepted under).
             age = days_since(prev["last_ok"])
-            stale = age > GRACE_DAYS
+            limit = F.MAX_ARCHIVE_DAYS if prev.get("via") == "wayback" else GRACE_DAYS
+            stale = age > limit
             rec["status"] = "unreachable" if stale else "ok"
             rec["error"] = (f"{'; '.join(res.notes)}; no newer archived copy; last good read {age:.0f} days ago"
                             if stale else "")
