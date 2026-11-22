@@ -21,7 +21,7 @@ Temporary lines: `check.yml` and `selftest.yml` each carry one cron line marked 
 ## How documents are read
 
 - `pipeline/fetch.py` sends `PlatformDefaultsBot/1.0 (+repo URL)`, reads robots.txt for each host and never fetches a disallowed URL (so facebook.com help pages are not read).
-- If a site refuses automated readers, the reader uses the newest Internet Archive capture of the same URL under 180 days old and labels it with the capture date. At launch only X's help pages (help.x.com refuses scripts) were read this way.
+- If a site refuses automated readers, the reader uses the newest Internet Archive capture of the same URL under 180 days old and labels it with the capture date. At launch only X's help pages (help.x.com refuses scripts) were read this way. A page read only from the archive stays good while its copy is under 180 days old; a page that was read directly and then starts refusing keeps its last direct read for 14 days. After that the page says the latest check could not read it, and the quotes keep their dates.
 - Sources are help centers, safety and parent centers, transparency pages and the platforms' own announcements. Marketing pages are avoided because they churn.
 
 ## What to watch
