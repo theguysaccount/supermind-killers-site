@@ -29,6 +29,7 @@ from . import fetch as F
 from . import store as S
 from . import textutil as T
 
+GRACE_DAYS = 14         # a blocked page keeps its last good read this long before it is flagged
 MIN_WORDS = 120          # fewer words than this is an error page or an empty shell, not a policy
 SHRINK = 0.35            # a page that lost two thirds of its words is treated as unreadable, not as a change
 MAX_EXCERPTS = 4
@@ -37,6 +38,14 @@ EXCERPT_CHARS = 280
 
 def now_iso() -> str:
     return dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def days_since(iso: str) -> float:
+    try:
+        t = dt.datetime.strptime(iso[:19], "%Y-%m-%dT%H:%M:%S").replace(tzinfo=dt.timezone.utc)
+    except ValueError:
+        return 9999.0
+    return (dt.datetime.now(dt.timezone.utc) - t).total_seconds() / 86400
 
 
 def capture_iso(stamp: str) -> str:
@@ -63,14 +72,17 @@ def read_document(app: dict, doc_id: str, doc: dict, prev: dict, *, offline: boo
                        archive_url=m.get("archive_url", ""), error=m["error"], body=m["html"].encode("utf-8"))
     else:
         res = F.fetch(doc["url"])
-        if res.via == "wayback" and res.ok and prev.get("last_ok") and capture_iso(res.capture) <= prev["last_ok"]:
-            # The archive holds nothing newer than the text already read: no new information.
-            # A document that is always read from the archive stays "ok" as of its capture date; a
-            # document normally read live is marked unreachable until the live page answers again.
-            was_archive = prev.get("via") == "wayback"
-            rec["status"] = "ok" if was_archive else "unreachable"
-            rec["error"] = "" if was_archive else "; ".join(res.notes) + "; the archive has nothing newer"
-            rec["note"] = "; ".join(res.notes)
+        if prev.get("last_ok") and not res.ok and res.via == "wayback" or (
+                res.via == "wayback" and res.ok and prev.get("last_ok") and capture_iso(res.capture) <= prev["last_ok"]):
+            # The live page refused this reader and the archive holds nothing newer than the text
+            # already read: no new information. The last good read stands, with its own date, for
+            # GRACE_DAYS; after that the document is marked unreadable so the page says so.
+            age = days_since(prev["last_ok"])
+            stale = age > GRACE_DAYS
+            rec["status"] = "unreachable" if stale else "ok"
+            rec["error"] = (f"{'; '.join(res.notes)}; no newer archived copy; last good read {age:.0f} days ago"
+                            if stale else "")
+            rec["note"] = "; ".join(res.notes) + "; showing the last good read"
             return rec, None
     if not res.ok:
         rec["status"] = "disallowed" if "robots.txt disallows" in res.error else "unreachable"

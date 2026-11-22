@@ -113,6 +113,25 @@ class CheckTests(unittest.TestCase):
         self.assertEqual(S.load_sig("example", "privacy", self.data), sig)
         self.assertTrue(all(q["found"] for q in S.state(self.data)["quotes"].values()))
 
+    def test_blocked_page_keeps_recent_read(self):
+        self.run_check()
+        good = S.state(self.data)["docs"]["example/privacy"]
+
+        def refused(url, **kw):  # live page refuses scripts; the archive has nothing usable
+            return F.Result(url=url, status=403, via="wayback", error="refused; Wayback has no capture",
+                            notes=["the live page refuses automated readers (HTTP 403)"])
+        with mock.patch.object(F, "fetch", refused):
+            C.main(["--data", self.data])
+        doc = S.state(self.data)["docs"]["example/privacy"]
+        self.assertEqual(doc["status"], "ok")             # within the grace period
+        self.assertEqual(doc["last_ok"], good["last_ok"])  # the as-of date does not move
+        st = S.state(self.data)
+        st["docs"]["example/privacy"]["last_ok"] = "2020-01-01T00:00:00Z"
+        S.save_state(st, self.data)
+        with mock.patch.object(F, "fetch", refused):
+            C.main(["--data", self.data])
+        self.assertEqual(S.state(self.data)["docs"]["example/privacy"]["status"], "unreachable")
+
     def test_a_gutted_page_is_not_a_change(self):
         self.run_check()
         self.html = "<html><body><p>Something went wrong. Please try again later.</p></body></html>"
