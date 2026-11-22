@@ -179,6 +179,33 @@ class CheckTests(unittest.TestCase):
         events = self.run_check()
         self.assertEqual([(e["added"], e["removed"]) for e in events], [(1, 0)])
 
+    def test_a_run_from_another_country_reads_nothing(self):
+        self.run_check()
+        before = open(os.path.join(self.data, "state.json")).read()
+
+        def never(url, **kw):
+            raise AssertionError("nothing may be fetched from another country")
+        ev = os.path.join(self.data, "ev.json")
+        with mock.patch.object(F, "fetch", never):
+            self.assertEqual(C.main(["--data", self.data, "--country", "cl", "--events-out", ev]), 0)
+        self.assertEqual(open(os.path.join(self.data, "state.json")).read(), before)
+        with open(ev) as f:
+            self.assertEqual(json.load(f), [])
+        with mock.patch.object(F, "fetch", self.fake_fetch):  # the home country, or an unknown one, checks as usual
+            C.main(["--data", self.data, "--country", "US"])
+            C.main(["--data", self.data, "--country", ""])
+
+    def test_rebaseline_records_no_change(self):
+        self.run_check()
+        self.html = page(within_30_days="within 90 days")
+        with mock.patch.object(F, "fetch", self.fake_fetch):
+            C.main(["--data", self.data, "--rebaseline", "--events-out", os.path.join(self.data, "ev.json")])
+        with open(os.path.join(self.data, "ev.json")) as f:
+            self.assertEqual(json.load(f), [])
+        self.assertEqual(S.changes(self.data), [])
+        self.assertEqual(sum(not q["found"] for q in S.state(self.data)["quotes"].values()), 1)  # quotes still verified
+        self.assertEqual(self.run_check(), [])  # the new text is now the baseline
+
     def test_a_gutted_page_is_not_a_change(self):
         self.run_check()
         self.html = "<html><body><p>Something went wrong. Please try again later.</p></body></html>"

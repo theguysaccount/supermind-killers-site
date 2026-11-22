@@ -33,7 +33,11 @@ jobs:
         with:
           python-version: "3.12"
       - name: Read every document and verify every quote
-        run: python3 -m pipeline.check --events-out "$RUNNER_TEMP/events.json"
+        # Pages can differ by country and GitHub runs jobs in several; outside the US the check does nothing.
+        run: |
+          country=$(curl -s --max-time 10 https://www.cloudflare.com/cdn-cgi/trace | sed -n 's/^loc=//p')
+          echo "This runner reaches the web from: ${country:-unknown}"
+          python3 -m pipeline.check --country "$country" --events-out "$RUNNER_TEMP/events.json"
       - name: Tests (refuse to commit results that break the build)
         run: python3 -m unittest discover -s tests
       - name: Commit the results

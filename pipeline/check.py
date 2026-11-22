@@ -4,6 +4,8 @@
     python3 -m pipeline.check --only chatgpt  # one app
     python3 -m pipeline.check --review        # reviewer's gate: exit 1 if any quote is not found
     python3 -m pipeline.check --offline       # no network: re-verify quotes against .cache/ (reviewers)
+    python3 -m pipeline.check --country CL    # the job passes the runner's country; outside the US it does nothing
+    python3 -m pipeline.check --rebaseline    # save new fingerprints without recording changes (after pinning a URL)
 
 What it does for each document on each scorecard:
   1. Fetches the page politely (pipeline/fetch.py). A page that cannot be read keeps its last
@@ -14,6 +16,11 @@ What it does for each document on each scorecard:
      word is marked "no longer found" with the date, and the scorecard is flagged for re-review.
   4. Appends one entry per changed document to data/changes.json, which feeds the change log,
      the RSS feed and the flags on each scorecard.
+
+Publishers show some pages differently by country (Google's privacy policy adds local-law sections;
+openai.com/policies/privacy-policy serves a regional version), and GitHub runs jobs in several
+countries. Every scorecard describes the version shown in HOME_COUNTRY, so a run from anywhere else
+reads nothing and changes nothing, and pages known to vary are pinned to that version in their URL.
 
 The run fails only on a bug in this code or a broken data file. Standard library only; Python 3.9+.
 """
@@ -29,6 +36,7 @@ from . import fetch as F
 from . import store as S
 from . import textutil as T
 
+HOME_COUNTRY = "US"      # the country whose version of each page the scorecards describe
 GRACE_DAYS = 14         # a blocked page keeps its last good read this long before it is flagged
 MIN_WORDS = 120          # fewer words than this is an error page or an empty shell, not a policy
 SHRINK = 0.35            # a page that lost two thirds of its words is treated as unreadable, not as a change
@@ -104,8 +112,10 @@ def read_document(app: dict, doc_id: str, doc: dict, prev: dict, *, offline: boo
     return rec, text
 
 
-def check_app(app: dict, state: dict, changes: list, *, offline: bool = False, data: str = S.DATA) -> list[dict]:
-    """Check one app's documents and quotes. Returns the new change entries."""
+def check_app(app: dict, state: dict, changes: list, *, offline: bool = False, data: str = S.DATA,
+              rebaseline: bool = False) -> list[dict]:
+    """Check one app's documents and quotes. Returns the new change entries.
+    With rebaseline=True, differences are printed but not recorded, and the fingerprints are replaced."""
     slug = app["slug"]
     new_events = []
     today = now_iso()[:10]
@@ -142,7 +152,10 @@ def check_app(app: dict, state: dict, changes: list, *, offline: bool = False, d
                 q["found"] = False
             q.update(app=slug, doc=doc_id)
             state["quotes"][qid] = q
-        if old_sig and (added or removed):
+        if old_sig and (added or removed) and rebaseline:
+            print(f"  {key}: new baseline ({len(added)} sentences not in the old one, {removed} gone); no change recorded",
+                  flush=True)
+        elif old_sig and (added or removed):
             rec["changed"] = rec["last_ok"][:10]
             event = {
                 "id": f"{rec['last_ok'][:10]}-{slug}-{doc_id}",
@@ -183,8 +196,26 @@ def main(argv=None) -> int:
     ap.add_argument("--review", action="store_true", help="exit 1 if any quote is not found (for reviewers)")
     ap.add_argument("--offline", action="store_true", help="use .cache/ instead of the network")
     ap.add_argument("--events-out", help="write this run's new change entries to a JSON file")
+    ap.add_argument("--country", default="", help="two-letter country this machine reaches the web from")
+    ap.add_argument("--rebaseline", action="store_true",
+                    help="save every document's fingerprints as the new baseline without recording changes")
     ap.add_argument("--data", default=S.DATA)
     args = ap.parse_args(argv)
+
+    country = args.country.strip().upper()
+    if country and country != HOME_COUNTRY:
+        msg = (f"This runner reaches the web from {country}, not {HOME_COUNTRY}. Publishers show some pages "
+               f"differently by country, so this run reads nothing and changes nothing; the next run from "
+               f"{HOME_COUNTRY} checks as usual.")
+        print(msg)
+        if args.events_out:
+            with open(args.events_out, "w", encoding="utf-8") as f:
+                json.dump([], f)
+        summary = os.environ.get("GITHUB_STEP_SUMMARY")
+        if summary:
+            with open(summary, "a", encoding="utf-8") as f:
+                f.write(f"### Skipped\n\n{msg}\n")
+        return 0
 
     apps = S.apps(args.data)
     state, changes = S.state(args.data), S.changes(args.data)
@@ -193,7 +224,7 @@ def main(argv=None) -> int:
         if args.only and app["slug"] not in args.only:
             continue
         print(app["slug"], flush=True)
-        new_events += check_app(app, state, changes, offline=args.offline, data=args.data)
+        new_events += check_app(app, state, changes, offline=args.offline, data=args.data, rebaseline=args.rebaseline)
     if not args.only:
         prune(state, apps)
     docs = state["docs"].values()
