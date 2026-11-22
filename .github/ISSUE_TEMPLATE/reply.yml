@@ -1,0 +1,34 @@
+name: Right of reply
+description: Publish a response on behalf of a platform covered on the site
+title: "Reply: "
+labels: ["right-of-reply"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        If you represent a platform covered here, you can publish a response: context for an answer, a document we should read, or a change since our last check.
+        Responses are **public** and are linked from the platform's page as filed. Please don't include personal contact details.
+  - type: input
+    id: app
+    attributes:
+      label: Platform
+      description: The platform, e.g. instagram
+    validations:
+      required: true
+  - type: textarea
+    id: response
+    attributes:
+      label: Response
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link to the relevant document (optional)
+  - type: checkboxes
+    id: public
+    attributes:
+      label: Publication
+      options:
+        - label: I understand this response is public and will be linked from the platform's page.
+          required: true

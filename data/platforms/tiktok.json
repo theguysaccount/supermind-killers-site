@@ -1,0 +1,122 @@
+{
+ "slug": "tiktok",
+ "name": "TikTok",
+ "maker": "TikTok",
+ "kind": "Short-video platform",
+ "reviewed": "2026-11-22",
+ "scope": "TikTok for teens aged 13 to 17, as described in TikTok's Guardian's Guide and its Transparency Center.",
+ "documents": {
+  "guide": {
+   "title": "TikTok Guardian's Guide",
+   "url": "https://www.tiktok.com/safety/en/guardians-guide/"
+  },
+  "recs": {
+   "title": "How TikTok recommends content (Transparency Center)",
+   "url": "https://www.tiktok.com/transparency/en/recommendation-system/"
+  }
+ },
+ "answers": {
+  "teen_private": {
+   "answer": "default",
+   "summary": "TikTok says teen accounts are private by default, as part of preset settings that are turned on automatically.",
+   "evidence": [
+    {
+     "doc": "guide",
+     "quote": "These features are automatically turned on and parents can further manage their teens' settings through Family Pairing."
+    },
+    {
+     "doc": "guide",
+     "quote": "Accounts are private by default."
+    }
+   ]
+  },
+  "teen_contact": {
+   "answer": "default",
+   "summary": "TikTok says accounts of teens under 16 have no direct messaging. The documents we read do not describe a default message limit for 16- and 17-year-olds.",
+   "evidence": [
+    {
+     "doc": "guide",
+     "quote": "Accounts for teens under 16 years old don't have access to direct messaging features."
+    }
+   ]
+  },
+  "teen_time": {
+   "answer": "default",
+   "summary": "TikTok says daily screen time is set to 60 minutes by default for teens.",
+   "evidence": [
+    {
+     "doc": "guide",
+     "quote": "Daily screen time is set by default to 60 minutes, which helps young people to be mindful about the time they spend on TikTok."
+    }
+   ]
+  },
+  "teen_night": {
+   "answer": "default",
+   "summary": "TikTok says push notifications are turned off from 9pm for teens aged 13 to 15 and from 10pm for teens aged 16 and 17.",
+   "evidence": [
+    {
+     "doc": "guide",
+     "quote": "Push notifications are disabled from 9pm for teens 13-15, and from 10pm for teens 16-17."
+    }
+   ]
+  },
+  "teen_content": {
+   "answer": "default",
+   "summary": "TikTok says it works to keep content with overtly mature themes from reaching teens under 18.",
+   "evidence": [
+    {
+     "doc": "guide",
+     "quote": "We also work to minimize content with overtly mature themes from reaching teens under 18 years old."
+    }
+   ]
+  },
+  "parental": {
+   "answer": "yes",
+   "summary": "TikTok says Family Pairing lets parents link their account to their teen's to manage content, privacy and well-being settings.",
+   "evidence": [
+    {
+     "doc": "guide",
+     "quote": "Family Pairing, which allows parents and guardians to link their accounts with their teens to manage content, privacy, and well-being settings."
+    }
+   ]
+  },
+  "feed_choice": {
+   "answer": "not_documented",
+   "summary": "The documents we read describe a way to refresh the For You feed, but no feed without personalized recommendations for users in the United States.",
+   "evidence": [
+    {
+     "doc": "recs",
+     "quote": "For You refresh: To help you discover new content, you can refresh your For You feed, enabling you to explore entirely new sides of TikTok."
+    }
+   ]
+  }
+ },
+ "facts": {
+  "ranking": {
+   "summary": "TikTok says its recommendation system predicts how likely you are to interact with each video, for example by liking, sharing, commenting or skipping, and ranks videos by that score.",
+   "evidence": [
+    {
+     "doc": "recs",
+     "quote": "We use these signals to create a prediction score for different videos. This score is an estimate of how likely you are to interact with each of those videos."
+    },
+    {
+     "doc": "recs",
+     "quote": "Predictions estimate the likelihood you will interact with a given video; for example, the probability of liking, sharing, commenting, or skipping a given video."
+    }
+   ]
+  },
+  "other": {
+   "summary": "TikTok says the setting that suggests a teen's account to others is off by default, and that content created by users under 16 is not shown in the For You feed.",
+   "evidence": [
+    {
+     "doc": "guide",
+     "quote": "The “Suggest your account to others” setting is turned off by default."
+    },
+    {
+     "doc": "guide",
+     "quote": "Content created by those under 16 is not eligible to be shown in the For You feed."
+    }
+   ]
+  }
+ }
+}

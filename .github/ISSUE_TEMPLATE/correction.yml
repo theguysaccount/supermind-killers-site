@@ -1,0 +1,41 @@
+name: Correction
+description: An answer, quote or summary on a platform page doesn't match the platform's own documentation
+title: "Correction: "
+labels: ["correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Every answer should match the platform's own help, safety or transparency pages. If one doesn't, that's our error.
+        Each report is checked against the document before anything changes; accepted corrections are listed on the site's change log.
+        **This issue is public.** Please don't include personal contact details.
+  - type: input
+    id: app
+    attributes:
+      label: Platform
+      description: The platform, e.g. instagram
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: Link to the platform page
+  - type: textarea
+    id: claim
+    attributes:
+      label: What is wrong
+      description: The question, the answer or the quote you believe is wrong
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: What the platform's document says
+      description: A link to the document and the passage, quoted exactly
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else

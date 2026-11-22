@@ -1,0 +1,113 @@
+{
+ "slug": "instagram",
+ "name": "Instagram",
+ "maker": "Meta",
+ "kind": "Photo and video platform",
+ "reviewed": "2026-11-22",
+ "scope": "Instagram Teen Accounts for users under 18, as described in Instagram's Teen Accounts announcement and Meta's Transparency Center.",
+ "documents": {
+  "teen-accounts": {
+   "title": "Introducing Instagram Teen Accounts",
+   "url": "https://about.instagram.com/blog/announcements/instagram-teen-accounts"
+  },
+  "feed-ranking": {
+   "title": "Instagram Feed AI system (Meta Transparency Center)",
+   "url": "https://transparency.meta.com/features/explaining-ranking/ig-feed/"
+  }
+ },
+ "answers": {
+  "teen_private": {
+   "answer": "default",
+   "summary": "Instagram says Teen Accounts are private by default for all teens under 16 and for teens under 18 when they sign up.",
+   "evidence": [
+    {
+     "doc": "teen-accounts",
+     "quote": "Private accounts: With default private accounts, teens need to accept new followers and people who don’t follow them can’t see their content or interact with them."
+    },
+    {
+     "doc": "teen-accounts",
+     "quote": "This applies to all teens under 16 (including those already on Instagram and those signing up) and teens under 18 when they sign up for the app."
+    }
+   ]
+  },
+  "teen_contact": {
+   "answer": "default",
+   "summary": "Instagram says teens are placed in the strictest messaging settings, so only people they follow or are connected to can message them.",
+   "evidence": [
+    {
+     "doc": "teen-accounts",
+     "quote": "Messaging restrictions: Teens will be placed in the strictest messaging settings, so they can only be messaged by people they follow or are already connected to."
+    }
+   ]
+  },
+  "teen_time": {
+   "answer": "default",
+   "summary": "Instagram says teens get notifications telling them to leave the app after 60 minutes each day.",
+   "evidence": [
+    {
+     "doc": "teen-accounts",
+     "quote": "Time limit reminders: Teens will get notifications telling them to leave the app after 60 minutes each day."
+    }
+   ]
+  },
+  "teen_night": {
+   "answer": "default",
+   "summary": "Instagram says sleep mode is on from 10 PM to 7 AM, muting notifications overnight.",
+   "evidence": [
+    {
+     "doc": "teen-accounts",
+     "quote": "Sleep mode enabled: Sleep mode will be turned on between 10 PM and 7 AM, which will mute notifications overnight and send auto-replies to DMs."
+    }
+   ]
+  },
+  "teen_content": {
+   "answer": "default",
+   "summary": "Instagram says teens are placed automatically in the most restrictive setting of its sensitive content control.",
+   "evidence": [
+    {
+     "doc": "teen-accounts",
+     "quote": "Sensitive content restrictions: Teens will automatically be placed into the most restrictive setting of our sensitive content control, which limits the type of sensitive content (such as content that shows people fighting or promotes cosmetic procedures) teens see in places like Explore and Reels."
+    }
+   ]
+  },
+  "parental": {
+   "answer": "yes",
+   "summary": "Instagram says parents can turn on supervision, and that teens under 16 need a parent's permission to use less protective settings.",
+   "evidence": [
+    {
+     "doc": "teen-accounts",
+     "quote": "Teens under 16 will need their parent’s permission to use less protective settings."
+    },
+    {
+     "doc": "teen-accounts",
+     "quote": "If parents want more oversight over their older teen’s (16+) experiences, they simply have to turn on parental supervision."
+    }
+   ]
+  },
+  "feed_choice": {
+   "answer": "yes",
+   "summary": "Meta says Instagram's Following view shows posts from accounts you follow in reverse chronological order.",
+   "evidence": [
+    {
+     "doc": "feed-ranking",
+     "quote": "To see content from accounts you follow in reverse chronological order, click \"Following\" on the home screen."
+    }
+   ]
+  }
+ },
+ "facts": {
+  "ranking": {
+   "summary": "Meta says the Instagram Feed orders posts by predicting what you will find most valuable and relevant, using signals to select content you are most likely to engage with.",
+   "evidence": [
+    {
+     "doc": "feed-ranking",
+     "quote": "The Instagram Feed AI system automatically orders the posts in your feed by predicting what you will find most valuable and relevant."
+    },
+    {
+     "doc": "feed-ranking",
+     "quote": "These prediction models use underlying input signals to help select content you're most likely to engage with."
+    }
+   ]
+  }
+ }
+}

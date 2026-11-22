@@ -1,0 +1,99 @@
+{
+ "slug": "pinterest",
+ "name": "Pinterest",
+ "maker": "Pinterest",
+ "kind": "Visual discovery platform",
+ "reviewed": "2026-11-22",
+ "scope": "Pinterest for teens, as described in Pinterest's teen safety help article.",
+ "documents": {
+  "teen": {
+   "title": "Teen safety options (Pinterest Help)",
+   "url": "https://help.pinterest.com/en/article/teen-safety-options"
+  }
+ },
+ "answers": {
+  "teen_private": {
+   "answer": "default",
+   "summary": "Pinterest says profiles of users under 18 are private.",
+   "evidence": [
+    {
+     "doc": "teen",
+     "quote": "If you’re under 18, your profile will be private."
+    }
+   ]
+  },
+  "teen_contact": {
+   "answer": "default",
+   "summary": "Pinterest says users under 16 can exchange messages only with mutual followers.",
+   "evidence": [
+    {
+     "doc": "teen",
+     "quote": "If you're under 16, you can exchange messages with mutual followers."
+    },
+    {
+     "doc": "teen",
+     "quote": "You can only be added to a group chat by people you follow and who follow you back."
+    }
+   ]
+  },
+  "teen_time": {
+   "answer": "not_documented",
+   "summary": "Pinterest describes an experiment with school-day reminders. It does not describe a default time limit or break reminder for teens.",
+   "evidence": [
+    {
+     "doc": "teen",
+     "quote": "We’re running an experiment and if you open the Pinterest app during the school day, you may see a reminder to put down your phone, pause notifications, and focus on school."
+    }
+   ]
+  },
+  "teen_night": {
+   "answer": "not_documented",
+   "summary": "The documents we read describe no night-time quiet hours or bedtime reminders for teens.",
+   "evidence": []
+  },
+  "teen_content": {
+   "answer": "not_documented",
+   "summary": "The documents we read describe no default limit on sensitive content for teens.",
+   "evidence": []
+  },
+  "parental": {
+   "answer": "yes",
+   "summary": "Pinterest says teens can work with a parent or guardian to set a passcode that locks certain settings.",
+   "evidence": [
+    {
+     "doc": "teen",
+     "quote": "Work with your parent or guardian to set up a passcode to lock certain settings related to account management, privacy and data, and social permissions."
+    }
+   ]
+  },
+  "feed_choice": {
+   "answer": "not_documented",
+   "summary": "The documents we read describe no feed without personalized recommendations.",
+   "evidence": []
+  }
+ },
+ "facts": {
+  "ranking": {
+   "summary": "Pinterest says it uses information about your activity on and off Pinterest to personalize your experience.",
+   "evidence": [
+    {
+     "doc": "teen",
+     "quote": "We use information about your activity on and off Pinterest to help personalize your experience on the platform."
+    }
+   ]
+  },
+  "other": {
+   "summary": "Pinterest says comments are turned off on Pins created by users under 18, and that users under 18 in the EU or UK are opted out of ads personalization.",
+   "evidence": [
+    {
+     "doc": "teen",
+     "quote": "If you’re under 18, comments will be automatically turned off on Pins you create until you turn 18."
+    },
+    {
+     "doc": "teen",
+     "quote": "If you're under 18 in the EU or UK, note that you’re automatically opted out of all ads personalization settings."
+    }
+   ]
+  }
+ }
+}

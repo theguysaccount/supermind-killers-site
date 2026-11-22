@@ -1,0 +1,14 @@
+[
+ {
+  "name": "Facebook",
+  "maker": "Meta",
+  "url": "https://www.facebook.com/help/",
+  "reason": "facebook.com's robots.txt tells automated readers not to fetch its help pages, and this project follows robots.txt."
+ },
+ {
+  "name": "Reddit",
+  "maker": "Reddit",
+  "url": "https://support.reddithelp.com/hc/en-us",
+  "reason": "Reddit's help center refuses automated readers, and the newest Internet Archive copies of its pages are too old to use."
+ }
+]

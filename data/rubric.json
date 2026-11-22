@@ -1,0 +1,208 @@
+{
+ "version": "1.0",
+ "published": "2026-11-22",
+ "scope": "Each page covers the platform's main app for users in the United States, as described in the platform's own help center, safety center, transparency pages and announcements. Regional options are noted where the documents say so.",
+ "criteria": [
+  {
+   "id": "teen_private",
+   "label": "Private by default",
+   "question": "Are teen accounts private by default?",
+   "page_question": "Are teen accounts on {app} private by default?",
+   "why": "A private account limits who can see a teen's posts and profile without anyone having to find the setting.",
+   "answers": [
+    {
+     "id": "default",
+     "points": 2,
+     "label": "Yes, by default",
+     "definition": "The platform says accounts, profiles or posts of teens (under 18, or under 16) are private or limited to approved contacts by default."
+    },
+    {
+     "id": "available",
+     "points": 1,
+     "label": "Setting available",
+     "definition": "The platform describes a private setting but does not say it is on by default for teens."
+    },
+    {
+     "id": "not_documented",
+     "points": 0,
+     "label": "Not documented",
+     "definition": "We found no statement about private accounts for teens in the documents we read."
+    }
+   ]
+  },
+  {
+   "id": "teen_contact",
+   "label": "Messages from strangers",
+   "question": "Are messages or contact from strangers limited by default for teens?",
+   "page_question": "Can strangers message teens on {app} by default?",
+   "why": "Unwanted contact is the risk parents ask about most; a default limit works without any setup.",
+   "answers": [
+    {
+     "id": "default",
+     "points": 2,
+     "label": "Limited by default",
+     "definition": "The platform says teens can only be messaged or contacted by people they follow, friends or mutual connections by default, or that teens have no direct messages."
+    },
+    {
+     "id": "available",
+     "points": 1,
+     "label": "Setting available",
+     "definition": "The platform describes settings or tools that limit contact, without saying they are on by default for teens."
+    },
+    {
+     "id": "not_documented",
+     "points": 0,
+     "label": "Not documented",
+     "definition": "We found no default limit on contact from strangers for teens in the documents we read."
+    }
+   ]
+  },
+  {
+   "id": "teen_time",
+   "label": "Time reminders",
+   "question": "Is a daily time limit or break reminder on by default for teens?",
+   "page_question": "Does {app} turn on time limits or break reminders for teens by default?",
+   "why": "Default reminders interrupt long sessions without anyone having to set them up.",
+   "answers": [
+    {
+     "id": "default",
+     "points": 2,
+     "label": "On by default",
+     "definition": "The platform says a daily limit, a reminder to leave or a take-a-break reminder is on by default for teens."
+    },
+    {
+     "id": "available",
+     "points": 1,
+     "label": "Setting available",
+     "definition": "The platform describes such a tool but not as a default for teens."
+    },
+    {
+     "id": "not_documented",
+     "points": 0,
+     "label": "Not documented",
+     "definition": "We found no time limit or break reminder for teens in the documents we read."
+    }
+   ]
+  },
+  {
+   "id": "teen_night",
+   "label": "Night-time quiet",
+   "question": "Are night-time notifications muted, or bedtime reminders on, by default for teens?",
+   "page_question": "Does {app} mute notifications or remind teens about bedtime by default?",
+   "why": "Notifications at night are a common reason teens pick up a phone after bedtime.",
+   "answers": [
+    {
+     "id": "default",
+     "points": 2,
+     "label": "On by default",
+     "definition": "The platform says notifications are muted at night, or bedtime reminders are on, by default for teens."
+    },
+    {
+     "id": "available",
+     "points": 1,
+     "label": "Setting available",
+     "definition": "The platform describes a quiet-hours or bedtime tool but not as a default for teens."
+    },
+    {
+     "id": "not_documented",
+     "points": 0,
+     "label": "Not documented",
+     "definition": "We found no night-time setting for teens in the documents we read."
+    }
+   ]
+  },
+  {
+   "id": "teen_content",
+   "label": "Sensitive content",
+   "question": "Is sensitive or mature content limited by default for teens?",
+   "page_question": "Does {app} limit sensitive or mature content for teens by default?",
+   "why": "Recommendation feeds decide much of what teens see; defaults decide what the feed may show them.",
+   "answers": [
+    {
+     "id": "default",
+     "points": 2,
+     "label": "Limited by default",
+     "definition": "The platform says it limits sensitive or mature content for teens by default."
+    },
+    {
+     "id": "available",
+     "points": 1,
+     "label": "Setting available",
+     "definition": "The platform describes a content filter but not as a default for teens."
+    },
+    {
+     "id": "not_documented",
+     "points": 0,
+     "label": "Not documented",
+     "definition": "We found no teen content limit in the documents we read."
+    }
+   ]
+  },
+  {
+   "id": "parental",
+   "label": "Parent tools",
+   "question": "Does the platform offer supervision tools for parents?",
+   "page_question": "Does {app} offer parental supervision tools?",
+   "why": "Supervision tools let a parent see or adjust a teen's settings.",
+   "answers": [
+    {
+     "id": "yes",
+     "points": 2,
+     "label": "Yes",
+     "definition": "The platform describes tools that let a parent or guardian link to a teen's account to view or manage settings."
+    },
+    {
+     "id": "not_documented",
+     "points": 0,
+     "label": "Not documented",
+     "definition": "We found no parental supervision tools in the documents we read."
+    }
+   ]
+  },
+  {
+   "id": "feed_choice",
+   "label": "Feed without recommendations",
+   "question": "Can users switch to a feed that is not based on personalized recommendations?",
+   "page_question": "Can you see a {app} feed that isn't based on recommendations?",
+   "why": "A feed of only the accounts you chose, or with recommendations switched off, changes what the app optimizes for you.",
+   "answers": [
+    {
+     "id": "yes",
+     "points": 2,
+     "label": "Yes",
+     "definition": "The platform describes a feed of only followed accounts, a chronological feed, or a way to switch off personalized recommendations."
+    },
+    {
+     "id": "regional",
+     "points": 1,
+     "label": "Only in some regions",
+     "definition": "The platform describes such an option only for some countries or regions."
+    },
+    {
+     "id": "not_documented",
+     "points": 0,
+     "label": "Not documented",
+     "definition": "We found no such option in the documents we read."
+    }
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "id": "ranking",
+   "label": "What the feed ranks by"
+  },
+  {
+   "id": "autoplay",
+   "label": "Autoplay"
+  },
+  {
+   "id": "age",
+   "label": "Minimum age"
+  },
+  {
+   "id": "other",
+   "label": "Other documented defaults"
+  }
+ ]
+}

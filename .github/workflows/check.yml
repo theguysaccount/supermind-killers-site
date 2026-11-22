@@ -1,0 +1,73 @@
+# Re-read every platform document, re-verify every quote word for word, record changed text, then
+# rebuild the site so its "as of" dates, flags, change log and RSS feed update.
+# Fails safe: a document that cannot be read keeps its last good record (and date); failing tests
+# stop the commit; the deploy it starts has its own tests, so the last good site stays live.
+# Safe to re-run: a change is recorded once per document version.
+name: Documentation check
+
+on:
+  schedule:
+    - cron: "37 8 * * 2"   # Tuesdays 08:37 UTC
+    - cron: "37 8 * * 5"   # Fridays 08:37 UTC (second slot: GitHub drops scheduled runs on this account)
+    - cron: "53 */6 22,23 11 *"   # TEMPORARY: proves the schedule trigger on 22-23 Nov 2026 only. Remove after the first scheduled run.
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+  issues: write
+
+concurrency:
+  group: documentation-check
+  cancel-in-progress: false
+
+env:
+  SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io/{1}', github.repository_owner, github.event.repository.name) }}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Read every document and verify every quote
+        run: python3 -m pipeline.check --events-out "$RUNNER_TEMP/events.json"
+      - name: Tests (refuse to commit results that break the build)
+        run: python3 -m unittest discover -s tests
+      - name: Commit the results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/state.json data/changes.json data/sigs
+          if git diff --cached --quiet; then echo "No data changes."; exit 0; fi
+          git commit -q -m "Documentation check $(date -u +%F)"
+          for i in 1 2 3; do
+            if git pull -q --rebase origin main && git push -q origin HEAD:main; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((i * 10))
+          done
+          echo "::error::Could not push the check results; the next run will check again."
+          exit 1
+      - name: Rebuild and redeploy the site
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main
+      - name: List changed documents in a needs-review issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/review_issue.py "$RUNNER_TEMP/events.json"
+
+  keepalive:
+    needs: check
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - name: Keep scheduled workflows enabled
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: scripts/keepalive.sh

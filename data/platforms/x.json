@@ -1,0 +1,89 @@
+{
+ "slug": "x",
+ "name": "X",
+ "maker": "X Corp.",
+ "kind": "Social network",
+ "reviewed": "2026-11-22",
+ "scope": "X (formerly Twitter), as described in X's help center. help.x.com refuses automated readers, so its pages are read from Internet Archive copies.",
+ "documents": {
+  "posts": {
+   "title": "About public and protected posts",
+   "url": "https://help.x.com/en/safety-and-security/public-and-protected-posts"
+  },
+  "dms": {
+   "title": "How to use Direct Messages",
+   "url": "https://help.x.com/en/using-x/direct-messages"
+  },
+  "timeline": {
+   "title": "About your For you timeline",
+   "url": "https://help.x.com/en/using-x/x-timeline"
+  }
+ },
+ "answers": {
+  "teen_private": {
+   "answer": "available",
+   "summary": "X says posts are public by default and can be protected in account settings. The documents we read describe no different default for teens.",
+   "evidence": [
+    {
+     "doc": "posts",
+     "quote": "your posts are public by default; anyone can view and interact with your posts."
+    },
+    {
+     "doc": "posts",
+     "quote": "Should you choose to protect your posts, you can do so through your account settings."
+    }
+   ]
+  },
+  "teen_contact": {
+   "answer": "available",
+   "summary": "X describes settings that control who can send message requests, and says some new accounts may already accept requests from people they don't follow. The documents we read describe no default for teens.",
+   "evidence": [
+    {
+     "doc": "dms",
+     "quote": "your account settings may already be set to receive message requests from other people you don't follow."
+    }
+   ]
+  },
+  "teen_time": {
+   "answer": "not_documented",
+   "summary": "The documents we read describe no time limit or break reminder.",
+   "evidence": []
+  },
+  "teen_night": {
+   "answer": "not_documented",
+   "summary": "The documents we read describe no night-time quiet hours or bedtime reminders.",
+   "evidence": []
+  },
+  "teen_content": {
+   "answer": "not_documented",
+   "summary": "The documents we read describe no default content limit for teens.",
+   "evidence": []
+  },
+  "parental": {
+   "answer": "not_documented",
+   "summary": "The documents we read describe no parental supervision tools.",
+   "evidence": []
+  },
+  "feed_choice": {
+   "answer": "yes",
+   "summary": "X says you can switch to a Following timeline that shows posts only from accounts you follow.",
+   "evidence": [
+    {
+     "doc": "timeline",
+     "quote": "Your Following timeline displays posts from only the accounts you follow."
+    }
+   ]
+  }
+ },
+ "facts": {
+  "ranking": {
+   "summary": "X says it selects recommended posts using signals including how popular a post is and how people in your network interact with it.",
+   "evidence": [
+    {
+     "doc": "timeline",
+     "quote": "We select each post using a variety of signals, including how popular it is and how people in your network are interacting with it."
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,143 @@
+{
+ "slug": "youtube",
+ "name": "YouTube",
+ "maker": "Google",
+ "kind": "Video platform",
+ "reviewed": "2026-11-22",
+ "scope": "YouTube for signed-in teens aged 13 to 17 and their parents, as described in YouTube's help center and How YouTube Works pages.",
+ "documents": {
+  "parents": {
+   "title": "Tips & resources for parents of teens on YouTube",
+   "url": "https://support.google.com/youtube/answer/2802272?hl=en"
+  },
+  "video-privacy": {
+   "title": "Change video privacy settings",
+   "url": "https://support.google.com/youtube/answer/157177?hl=en"
+  },
+  "autoplay": {
+   "title": "Autoplay videos",
+   "url": "https://support.google.com/youtube/answer/6327615?hl=en"
+  },
+  "history": {
+   "title": "View, delete, or turn on or off watch history",
+   "url": "https://support.google.com/youtube/answer/95725?hl=en"
+  },
+  "recs": {
+   "title": "How YouTube Works: Recommendations",
+   "url": "https://www.youtube.com/howyoutubeworks/product-features/recommendations/"
+  }
+ },
+ "answers": {
+  "teen_private": {
+   "answer": "default",
+   "summary": "YouTube says videos uploaded by creators aged 13 to 17 are private by default.",
+   "evidence": [
+    {
+     "doc": "video-privacy",
+     "quote": "The default video privacy setting for creators aged 13–17 is private."
+    }
+   ]
+  },
+  "teen_contact": {
+   "answer": "available",
+   "summary": "YouTube describes tools teens can use to remove comments on their channel or hold them for review. The documents we read describe no default limit on contact from strangers.",
+   "evidence": [
+    {
+     "doc": "parents",
+     "quote": "Moderating channel comments: Your teen can remove comments posted on their channel, or moderate them before they appear."
+    }
+   ]
+  },
+  "teen_time": {
+   "answer": "default",
+   "summary": "YouTube says take-a-break reminders are turned on automatically for teens.",
+   "evidence": [
+    {
+     "doc": "parents",
+     "quote": "Take a break reminders: This feature is automatically turned on for teens and reminds them to take a break while browsing or watching videos or YouTube Shorts."
+    }
+   ]
+  },
+  "teen_night": {
+   "answer": "default",
+   "summary": "YouTube says bedtime reminders are turned on automatically for teens.",
+   "evidence": [
+    {
+     "doc": "parents",
+     "quote": "Bedtime reminders: This feature is automatically turned on for teens and appears when it’s time for them to stop watching YouTube and go to bed."
+    }
+   ]
+  },
+  "teen_content": {
+   "answer": "default",
+   "summary": "YouTube says its recommendation system automatically minimizes teens' exposure to content that could negatively affect their self-image or behaviors, and that search protections apply to teens.",
+   "evidence": [
+    {
+     "doc": "parents",
+     "quote": "This system automatically minimizes exposure to content that could negatively impact their self-image or behaviors."
+    },
+    {
+     "doc": "parents",
+     "quote": "YouTube has search safety protections for teens to prevent results from appearing for search terms linked to content that is either age-restricted or violative."
+    }
+   ]
+  },
+  "parental": {
+   "answer": "yes",
+   "summary": "YouTube says parents can set up a supervised account linked to their teen's account.",
+   "evidence": [
+    {
+     "doc": "parents",
+     "quote": "For additional safety, you can set up a supervised account and link with your teen’s account."
+    }
+   ]
+  },
+  "feed_choice": {
+   "answer": "yes",
+   "summary": "YouTube says that with watch history turned off and no recent history, recommendations on the YouTube homepage are removed.",
+   "evidence": [
+    {
+     "doc": "history",
+     "quote": "If you have no relevant or significant recent watch history and have indicated you do not wish to receive future recommendations based on that history, YouTube features like recommendations on the YouTube homepage are removed."
+    }
+   ]
+  }
+ },
+ "facts": {
+  "ranking": {
+   "summary": "YouTube says its recommendations draw on viewing behaviour, likes, dislikes, subscriptions and feedback, including satisfaction surveys.",
+   "evidence": [
+    {
+     "doc": "recs",
+     "quote": "Understanding a user's viewing behaviour, likes, dislikes, subscriptions and feedback, including from satisfaction surveys, helps us do this most effectively."
+    }
+   ]
+  },
+  "autoplay": {
+   "summary": "Autoplay is off by default for users aged 13 to 17. Shorts autoscroll is off by default for users under 18 and on by default for most adults on computers and TVs.",
+   "evidence": [
+    {
+     "doc": "autoplay",
+     "quote": "For users aged 13-17 on YouTube, Autoplay is turned off by default."
+    },
+    {
+     "doc": "autoplay",
+     "quote": "Users under 18: Autoscroll is off by default, but viewers can turn it on."
+    },
+    {
+     "doc": "autoplay",
+     "quote": "On Computer and Smart TVs: Autoscroll is on by default for most users over 18."
+    }
+   ]
+  },
+  "age": {
+   "summary": "Teens need a Google Account that meets the minimum age in their country or region.",
+   "evidence": [
+    {
+     "doc": "parents",
+     "quote": "To sign in to YouTube, your teen must have a Google Account that meets the minimum age requirements in your country or region."
+    }
+   ]
+  }
+ }
+}

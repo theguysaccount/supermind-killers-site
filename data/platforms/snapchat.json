@@ -1,0 +1,113 @@
+{
+ "slug": "snapchat",
+ "name": "Snapchat",
+ "maker": "Snap",
+ "kind": "Messaging and stories app",
+ "reviewed": "2026-11-22",
+ "scope": "Snapchat for teens aged 13 to 17, as described in Snap's parents site, Safety Center and help center.",
+ "documents": {
+  "parents": {
+   "title": "Snapchat for Parents",
+   "url": "https://parents.snapchat.com/"
+  },
+  "safety": {
+   "title": "Snap Safety Center",
+   "url": "https://values.snap.com/safety/safety-center"
+  },
+  "help": {
+   "title": "Staying safe on Snapchat (Snapchat Support)",
+   "url": "https://help.snapchat.com/hc/en-us/articles/7012304746644"
+  }
+ },
+ "answers": {
+  "teen_private": {
+   "answer": "default",
+   "summary": "Snap says that by default only people you have added can view your Story, for all users.",
+   "evidence": [
+    {
+     "doc": "help",
+     "quote": "The default privacy setting is that only Snapchatters you’ve added can view your Story."
+    }
+   ]
+  },
+  "teen_contact": {
+   "answer": "default",
+   "summary": "Snap says contact settings for all users are limited to friends and phone contacts and cannot be expanded.",
+   "evidence": [
+    {
+     "doc": "parents",
+     "quote": "Contact settings for all users are set to friends and phone contacts only, and can’t be expanded."
+    }
+   ]
+  },
+  "teen_time": {
+   "answer": "not_documented",
+   "summary": "The documents we read describe no time limit or break reminder for teens.",
+   "evidence": []
+  },
+  "teen_night": {
+   "answer": "not_documented",
+   "summary": "The documents we read describe no night-time quiet hours or bedtime reminders for teens.",
+   "evidence": []
+  },
+  "teen_content": {
+   "answer": "default",
+   "summary": "Snap says its strict default settings for teens include an age-appropriate content experience and cannot be turned off. The documents we read do not list the specific content limits.",
+   "evidence": [
+    {
+     "doc": "parents",
+     "quote": "We have strict default settings for teens to keep the focus on connecting with friends, preventing unwanted contact, and ensuring an age-appropriate content experience. These protections cannot be turned off."
+    }
+   ]
+  },
+  "parental": {
+   "answer": "yes",
+   "summary": "Snap says Family Center lets parents see who their teen is friends with and has messaged recently, and view their teen's settings.",
+   "evidence": [
+    {
+     "doc": "parents",
+     "quote": "Family Center is our in-app resource that offers parents the ability to do things like see who their teen is friends with and who they have messaged with recently, request their teen’s location, view their teen’s privacy and safety settings on Snapchat, and more."
+    }
+   ]
+  },
+  "feed_choice": {
+   "answer": "yes",
+   "summary": "Snap says the Subscriptions section of Discover is sorted by which Story was updated most recently.",
+   "evidence": [
+    {
+     "doc": "safety",
+     "quote": "These are sorted by which Story was updated most recently."
+    }
+   ]
+  }
+ },
+ "facts": {
+  "ranking": {
+   "summary": "Snap says friends' Stories are sorted by who you keep in touch with the most.",
+   "evidence": [
+    {
+     "doc": "safety",
+     "quote": "Friends: Friends' Stories are sorted based on who you keep in touch with the most, so you'll usually see mainly the people you care about."
+    }
+   ]
+  },
+  "age": {
+   "summary": "At least 13.",
+   "evidence": [
+    {
+     "doc": "parents",
+     "quote": "Teens must be at least 13 to create a Snapchat account."
+    }
+   ]
+  },
+  "other": {
+   "summary": "Snap says location sharing is off by default.",
+   "evidence": [
+    {
+     "doc": "parents",
+     "quote": "Location-sharing is off by default."
+    }
+   ]
+  }
+ }
+}
