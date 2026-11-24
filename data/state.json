@@ -1,12 +1,12 @@
 {
- "checked": "2026-11-22T20:17:05Z",
+ "checked": "2026-11-24T19:42:02Z",
  "docs": {
   "instagram/feed-ranking": {
    "archive_url": "",
    "capture": "",
-   "checked": "2026-11-22T20:14:10Z",
+   "checked": "2026-11-24T19:41:05Z",
    "error": "",
-   "last_ok": "2026-11-22T20:14:10Z",
+   "last_ok": "2026-11-24T19:41:05Z",
    "note": "",
    "status": "ok",
    "url": "https://transparency.meta.com/features/explaining-ranking/ig-feed/",
@@ -16,9 +16,9 @@
   "instagram/teen-accounts": {
    "archive_url": "",
    "capture": "",
-   "checked": "2026-11-22T20:14:08Z",
+   "checked": "2026-11-24T19:41:02Z",
    "error": "",
-   "last_ok": "2026-11-22T20:14:08Z",
+   "last_ok": "2026-11-24T19:41:02Z",
    "note": "",
    "status": "ok",
    "url": "https://about.instagram.com/blog/announcements/instagram-teen-accounts",
@@ -28,9 +28,9 @@
   "pinterest/teen": {
    "archive_url": "",
    "capture": "",
-   "checked": "2026-11-22T20:14:14Z",
+   "checked": "2026-11-24T19:41:08Z",
    "error": "",
-   "last_ok": "2026-11-22T20:14:14Z",
+   "last_ok": "2026-11-24T19:41:08Z",
    "note": "",
    "status": "ok",
    "url": "https://help.pinterest.com/en/article/teen-safety-options",
@@ -40,9 +40,9 @@
   "snapchat/help": {
    "archive_url": "",
    "capture": "",
-   "checked": "2026-11-22T20:14:21Z",
+   "checked": "2026-11-24T19:41:14Z",
    "error": "",
-   "last_ok": "2026-11-22T20:14:21Z",
+   "last_ok": "2026-11-24T19:41:14Z",
    "note": "",
    "status": "ok",
    "url": "https://help.snapchat.com/hc/en-us/articles/7012304746644",
@@ -52,9 +52,9 @@
   "snapchat/parents": {
    "archive_url": "",
    "capture": "",
-   "checked": "2026-11-22T20:14:16Z",
+   "checked": "2026-11-24T19:41:10Z",
    "error": "",
-   "last_ok": "2026-11-22T20:14:16Z",
+   "last_ok": "2026-11-24T19:41:10Z",
    "note": "",
    "status": "ok",
    "url": "https://parents.snapchat.com/",
@@ -64,9 +64,9 @@
   "snapchat/safety": {
    "archive_url": "",
    "capture": "",
-   "checked": "2026-11-22T20:14:18Z",
+   "checked": "2026-11-24T19:41:12Z",
    "error": "",
-   "last_ok": "2026-11-22T20:14:18Z",
+   "last_ok": "2026-11-24T19:41:12Z",
    "note": "",
    "status": "ok",
    "url": "https://values.snap.com/safety/safety-center",
@@ -76,9 +76,9 @@
   "tiktok/guide": {
    "archive_url": "",
    "capture": "",
-   "checked": "2026-11-22T20:14:25Z",
+   "checked": "2026-11-24T19:41:18Z",
    "error": "",
-   "last_ok": "2026-11-22T20:14:25Z",
+   "last_ok": "2026-11-24T19:41:18Z",
    "note": "",
    "status": "ok",
    "url": "https://www.tiktok.com/safety/en/guardians-guide/",
@@ -88,9 +88,9 @@
   "tiktok/recs": {
    "archive_url": "",
    "capture": "",
-   "checked": "2026-11-22T20:14:29Z",
+   "checked": "2026-11-24T19:41:23Z",
    "error": "",
-   "last_ok": "2026-11-22T20:14:29Z",
+   "last_ok": "2026-11-24T19:41:23Z",
    "note": "",
    "status": "ok",
    "url": "https://www.tiktok.com/transparency/en/recommendation-system/",
@@ -100,7 +100,7 @@
   "x/dms": {
    "archive_url": "https://web.archive.org/web/20261110042210/https://help.x.com/en/using-x/direct-messages",
    "capture": "20261110042210",
-   "checked": "2026-11-22T20:14:42Z",
+   "checked": "2026-11-24T19:41:33Z",
    "error": "",
    "last_ok": "2026-11-10T04:22:10Z",
    "note": "the live page refuses automated readers (HTTP 403); showing the last good read",
@@ -112,7 +112,7 @@
   "x/posts": {
    "archive_url": "https://web.archive.org/web/20261116190339/https://help.x.com/en/safety-and-security/public-and-protected-posts",
    "capture": "20261116190339",
-   "checked": "2026-11-22T20:14:33Z",
+   "checked": "2026-11-24T19:41:27Z",
    "error": "",
    "last_ok": "2026-11-16T19:03:39Z",
    "note": "the live page refuses automated readers (HTTP 403); showing the last good read",
@@ -124,7 +124,7 @@
   "x/timeline": {
    "archive_url": "https://web.archive.org/web/20260929015103/https://help.x.com/en/using-x/x-timeline",
    "capture": "20260929015103",
-   "checked": "2026-11-22T20:14:48Z",
+   "checked": "2026-11-24T19:41:41Z",
    "error": "",
    "last_ok": "2026-09-29T01:51:03Z",
    "note": "the live page refuses automated readers (HTTP 403); showing the last good read",
@@ -136,9 +136,9 @@
   "youtube/autoplay": {
    "archive_url": "",
    "capture": "",
-   "checked": "2026-11-22T20:16:57Z",
+   "checked": "2026-11-24T19:41:54Z",
    "error": "",
-   "last_ok": "2026-11-22T20:16:57Z",
+   "last_ok": "2026-11-24T19:41:54Z",
    "note": "",
    "status": "ok",
    "url": "https://support.google.com/youtube/answer/6327615?hl=en",
@@ -148,9 +148,9 @@
   "youtube/history": {
    "archive_url": "",
    "capture": "",
-   "checked": "2026-11-22T20:16:59Z",
+   "checked": "2026-11-24T19:41:56Z",
    "error": "",
-   "last_ok": "2026-11-22T20:16:59Z",
+   "last_ok": "2026-11-24T19:41:56Z",
    "note": "",
    "status": "ok",
    "url": "https://support.google.com/youtube/answer/95725?hl=en",
@@ -160,9 +160,9 @@
   "youtube/parents": {
    "archive_url": "",
    "capture": "",
-   "checked": "2026-11-22T20:16:53Z",
+   "checked": "2026-11-24T19:41:49Z",
    "error": "",
-   "last_ok": "2026-11-22T20:16:53Z",
+   "last_ok": "2026-11-24T19:41:49Z",
    "note": "",
    "status": "ok",
    "url": "https://support.google.com/youtube/answer/2802272?hl=en",
@@ -172,9 +172,9 @@
   "youtube/recs": {
    "archive_url": "",
    "capture": "",
-   "checked": "2026-11-22T20:17:01Z",
+   "checked": "2026-11-24T19:41:58Z",
    "error": "",
-   "last_ok": "2026-11-22T20:17:01Z",
+   "last_ok": "2026-11-24T19:41:58Z",
    "note": "",
    "status": "ok",
    "url": "https://www.youtube.com/howyoutubeworks/product-features/recommendations/",
@@ -184,9 +184,9 @@
   "youtube/video-privacy": {
    "archive_url": "",
    "capture": "",
-   "checked": "2026-11-22T20:16:55Z",
+   "checked": "2026-11-24T19:41:52Z",
    "error": "",
-   "last_ok": "2026-11-22T20:16:55Z",
+   "last_ok": "2026-11-24T19:41:52Z",
    "note": "",
    "status": "ok",
    "url": "https://support.google.com/youtube/answer/157177?hl=en",
@@ -194,73 +194,73 @@
    "words": 579
   }
  },
- "last_run_ok": "2026-11-22T20:17:05Z",
+ "last_run_ok": "2026-11-24T19:42:02Z",
  "quotes": {
   "0cbec09a8a63ce": {
    "app": "instagram",
    "doc": "teen-accounts",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "0e763516bdcae8": {
    "app": "snapchat",
    "doc": "help",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "1eeef6b989f03d": {
    "app": "pinterest",
    "doc": "teen",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "31bb4f0ec98e42": {
    "app": "instagram",
    "doc": "feed-ranking",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "3aeeb8808f449f": {
    "app": "youtube",
    "doc": "history",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "3f90a2013646c0": {
    "app": "tiktok",
    "doc": "recs",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "4191a78ef5110d": {
    "app": "instagram",
    "doc": "teen-accounts",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "429155a3b95119": {
    "app": "snapchat",
    "doc": "parents",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "432b8285cab3cb": {
    "app": "youtube",
    "doc": "parents",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "436df63971d039": {
    "app": "tiktok",
    "doc": "recs",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "43d1987bce2385": {
    "app": "youtube",
    "doc": "video-privacy",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "452c91786ced8e": {
    "app": "x",
@@ -272,13 +272,13 @@
    "app": "pinterest",
    "doc": "teen",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "487d089238c391": {
    "app": "tiktok",
    "doc": "guide",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "48cbea0888c65a": {
    "app": "x",
@@ -290,61 +290,61 @@
    "app": "youtube",
    "doc": "parents",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "521dbf1cda6443": {
    "app": "tiktok",
    "doc": "guide",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "5934b7c72fccb4": {
    "app": "tiktok",
    "doc": "guide",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "59dd1e9f63e47a": {
    "app": "tiktok",
    "doc": "guide",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "5bfce74ca99bc3": {
    "app": "pinterest",
    "doc": "teen",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "622c144c9349ae": {
    "app": "snapchat",
    "doc": "parents",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "64be52a179f744": {
    "app": "tiktok",
    "doc": "guide",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "64cf56c4998a50": {
    "app": "pinterest",
    "doc": "teen",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "67062d55398d45": {
    "app": "youtube",
    "doc": "autoplay",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "6f63e1334b2d30": {
    "app": "instagram",
    "doc": "feed-ranking",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "808f25170ec42c": {
    "app": "x",
@@ -356,145 +356,145 @@
    "app": "snapchat",
    "doc": "safety",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "83cd432853c6f0": {
    "app": "instagram",
    "doc": "teen-accounts",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "8579e09f62d8f6": {
    "app": "instagram",
    "doc": "teen-accounts",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "898802dd74ec01": {
    "app": "youtube",
    "doc": "autoplay",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "9046a22e0d00f3": {
    "app": "snapchat",
    "doc": "safety",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "94dc28afb7f5e6": {
    "app": "snapchat",
    "doc": "parents",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "9ae1643fdcf61a": {
    "app": "instagram",
    "doc": "teen-accounts",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "9b24a414b6c33a": {
    "app": "tiktok",
    "doc": "guide",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "a24bdd1ec67ac1": {
    "app": "instagram",
    "doc": "teen-accounts",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "a39f102570ff3f": {
    "app": "tiktok",
    "doc": "guide",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "a83dbb92c02dbd": {
    "app": "youtube",
    "doc": "parents",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "a915a564365dc6": {
    "app": "snapchat",
    "doc": "parents",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "ae31272f6cf535": {
    "app": "snapchat",
    "doc": "parents",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "b1946eb6cf2efd": {
    "app": "pinterest",
    "doc": "teen",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "b5a9572bc336c1": {
    "app": "instagram",
    "doc": "teen-accounts",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "b5f99bb2678285": {
    "app": "instagram",
    "doc": "feed-ranking",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "bb9b84db323ae8": {
    "app": "youtube",
    "doc": "parents",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "bde9dc25ba2f36": {
    "app": "youtube",
    "doc": "parents",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "c15518452bf827": {
    "app": "pinterest",
    "doc": "teen",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "c512490a534a99": {
    "app": "youtube",
    "doc": "recs",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "cc8ea80a9d65ca": {
    "app": "tiktok",
    "doc": "guide",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "ce262ce1d542c9": {
    "app": "instagram",
    "doc": "teen-accounts",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "cf2fac520efe2f": {
    "app": "tiktok",
    "doc": "guide",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "d0d8802c09e248": {
    "app": "youtube",
    "doc": "autoplay",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "e168100476a4c8": {
    "app": "x",
@@ -512,31 +512,31 @@
    "app": "tiktok",
    "doc": "recs",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "e966f250c8e1e4": {
    "app": "youtube",
    "doc": "parents",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "efe96258d8ce81": {
    "app": "pinterest",
    "doc": "teen",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "f4e5edb0746cb7": {
    "app": "youtube",
    "doc": "parents",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   },
   "f715c67ca40ee8": {
    "app": "pinterest",
    "doc": "teen",
    "found": true,
-   "last_found": "2026-11-22"
+   "last_found": "2026-11-24"
   }
  }
 }
